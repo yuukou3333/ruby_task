@@ -5,8 +5,8 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names[0] = "斎藤"
-  p names[0]
+  names.push("斎藤")
+  p names
 end
 
 def q2
@@ -31,8 +31,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  sports.delete(nil)
-  p sports
+  p sports.compact!
 
 end
 
@@ -41,21 +40,23 @@ def q5
   array2 = [1, 5, 8, 10]
 
   # 以下に回答を記載
-
+  p array1.empty?
+  p array2.empty?
 end
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-
+  numbers2 = numbers1.map { |n| n*10}  
+  p numbers2
 end
 
 def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-
+  p array.map!(&:to_i)
 end
 
 def q8
@@ -64,8 +65,8 @@ def q8
   # 以下に回答を記載
 
   
-  p programming_languages
-  p upper_case_programming_languages
+  p programming_languages = programming_languages.map(&:capitalize)
+  p upper_case_programming_languages = programming_languages.map(&:upcase)
 end
 
 def q9
