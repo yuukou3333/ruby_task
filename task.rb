@@ -5,7 +5,7 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.push("斎藤")
+  names << "斎藤"
   p names
 end
 
@@ -65,7 +65,7 @@ def q8
   # 以下に回答を記載
 
   
-  p programming_languages = programming_languages.map(&:capitalize)
+  p programming_languages.map!(&:capitalize)
   p upper_case_programming_languages = programming_languages.map(&:upcase)
 end
 
@@ -74,19 +74,35 @@ def q9
 
   # 以下に回答を記載
 
+  names.each.with_index(1) do |name, index| 
+    p "会員番号No.#{index} #{name}さん"
+  end
+
+
+
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-
+  foods.each do |food|
+    if(food.include?("うに"))
+      p "好物です"
+    else
+      p "まぁまぁ好きです"
+    end
+  end
 end
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  sports = sports.flatten!.uniq!
+  sports.each.with_index(1) do |sport, index|
+    p "No#{index} #{sport}"
+  end
 
 end
 
@@ -94,6 +110,7 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+  p data[:user][:name]
 
 end
 
