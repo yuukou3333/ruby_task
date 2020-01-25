@@ -75,7 +75,7 @@ def q9
   # 以下に回答を記載
 
   names.each.with_index(1) do |name, index| 
-    p "会員番号No.#{index} #{name}さん"
+    puts "会員番号No.#{index} #{name}さん"
   end
 
 
@@ -88,9 +88,9 @@ def q10
   # 以下に回答を記載
   foods.each do |food|
     if food.include?("うに")
-      p "好物です"
+      puts "好物です"
     else
-      p "まぁまぁ好きです"
+      puts "まぁまぁ好きです"
     end
   end
 end
@@ -157,6 +157,21 @@ end
 
 class UserQ17
   # 以下に回答を記載
+  def initialize(user)
+    @name = user[:name]
+    @age = user[:age]
+    @gender = user[:gender]
+    @admin = user[:admin]
+  end
+  def info
+    puts <<~TEXT
+    "名前 : #{@name}"
+    "年齢 : #{@age}"
+    "性別 : #{@gender}"
+    "管理者権限 : #{@admin ? "有り" : "無し"}"
+    TEXT
+  end
+
 
 end
 
@@ -172,6 +187,18 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  def initialize(user)
+    @name = user[:name]
+    @age = user[:age]
+  end
+
+  def introduce
+    if @age == 10
+      puts "はいさいまいど〜、#{@name}です！！！"
+    else
+      puts "こんにちは、#{@name}と申します。宜しくお願いいたします。"
+    end
+  end
 
 end
 
@@ -187,9 +214,14 @@ end
 class Item
   # 以下を修正して下さい
 
-  def initialize(name)
-    @name = name
+  def initialize(item)
+    @name = item[:name]
   end
+
+  def name 
+    @name
+  end
+
 end
 
 def q19
@@ -201,10 +233,12 @@ end
 class UserQ20
   # 以下に回答を記載
 
+
 end
 
 class Zoo
   # 以下に回答を記載
+
 
 end
 
