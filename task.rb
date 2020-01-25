@@ -157,7 +157,7 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize(user)
+  def initialize(**user)
     @name = user[:name]
     @age = user[:age]
     @gender = user[:gender]
@@ -187,7 +187,7 @@ end
 
 class UserQ18
   # 以下に回答を記載
-  def initialize(user)
+  def initialize(**user)
     @name = user[:name]
     @age = user[:age]
   end
@@ -214,13 +214,17 @@ end
 class Item
   # 以下を修正して下さい
 
-  def initialize(item)
-    @name = item[:name]
+  # def initialize(item)
+  #   @name = item[:name]
+  # end
+  def initialize(name:)
+    @name = name
   end
 
-  def name 
-    @name
-  end
+  # def name 
+  #   @name
+  # end
+  attr_reader :name
 
 end
 
@@ -232,13 +236,39 @@ end
 
 class UserQ20
   # 以下に回答を記載
+  def initialize(**user)
+    @name = user[:name]
+    @age = user[:age]
+  end
 
+  attr_reader :name, :age
 
 end
 
 class Zoo
   # 以下に回答を記載
 
+  def initialize(**fee)
+    @name = fee[:name]
+    @infant_fee = fee[:entry_fee][:infant]
+    @children_fee = fee[:entry_fee][:children]
+    @adult_fee = fee[:entry_fee][:adult]
+    @senior_fee = fee[:entry_fee][:senior]
+  end
+
+  def info_entry_fee(user)
+    age = user.age
+    name = user.name
+    if age <= 5
+      puts "#{name}の入場料金は#{@infant_fee}円です。"
+    elsif age > 5 and age <= 12 
+      puts "#{name}の入場料金は#{@children_fee}円です。"
+    elsif age > 12 and age <= 59 
+      puts "#{name}の入場料金は#{@adult_fee}円です。"
+    else
+      puts "#{name}の入場料金は#{@senior_fee}円です。"
+    end
+  end
 
 end
 
